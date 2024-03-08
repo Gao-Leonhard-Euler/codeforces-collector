@@ -2,9 +2,7 @@ import requests
 import html
 import os
 
-n = 1
 t = int(input('input a number not greater than 1000:'))
-h = 0
 s = requests.get('https://codeforces.com/api/problemset.recentStatus?count='+str(t))
 while s.status_code != 200:
     s = requests.get('https://codeforces.com/api/problemset.recentStatus?count=' + str(t))
@@ -27,5 +25,4 @@ for i in range(t):
         r = r[r.find('linenums') + 49:len(r)]
         r = html.unescape(r[0:r.find('</pre>')])
         f.write(r)
-        n = n+1
         f.close()
