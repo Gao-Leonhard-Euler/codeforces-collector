@@ -1,12 +1,20 @@
 # Codeforces 内容收集器/Codeforces Collector
 
-## Codeforces 提交记录收集器/Codeforces Submission Collector
+### 比赛提交记录搜集器/Contest Submission Collector
+
+`CodeforcesCollect_contestSubmission.py`
+
+这个Python脚本可以帮助用户从Codeforces平台收集和保存指定比赛的最近的提交记录并对其进行分类。
+
+This Python script can help users collect and save latest submissions of chosen from the Codeforces platform and categorize them.
+
+### 最新提交记录收集器/Latest Submission Collector
 
 `CodeforcesCollect_Submission.py`
 
-这个Python脚本可以帮助用户从Codeforces平台收集和保存提交记录并对其进行分类。
+这个Python脚本可以帮助用户从Codeforces平台收集和保存最近的提交记录并对其进行分类。
 
-This Python script can help users collect and save submission records from the Codeforces platform and categorize them.
+This Python script can help users collect and save latest submissions from the Codeforces platform and categorize them.
 
 ### 使用方法/Usage
 
@@ -19,11 +27,15 @@ This Python script can help users collect and save submission records from the C
    pip install html
    ```
 
-3. **运行脚本**：在命令行中运行脚本，脚本会提示你输入想要查找的样例个数(不大于1000)。输入一个整数`t`，脚本将获取最近的`t`个提交记录，将其中有权限访问的记录保存并分类。
+3. **运行脚本**：在命令行中运行脚本。\
+   `CodeforcesCollect_Submission.py`脚本会提示你输入想要查找的样例个数(不大于1000)。输入一个整数`t`，脚本将获取最近的`t`个提交记录，将其中有权限访问的记录保存并分类。\
+   `CodeforcesCollect_contestSubmission.py`脚本会提示你输入比赛编号和想要查找的样例个数。输入比赛编号以及一个整数`t`，脚本将获取指定比赛的最近的`t`个提交记录，将其中有权限访问的记录保存并分类。
 
-   **Running the Script**: Execute the script in the command line, where the script will prompt you to enter the number of samples you wish to search for (not exceeding 1000). Enter an integer `t`, and the script will proceed to retrieve the specified number of submissions.
+   **Running the Script**: Execute the script in the command line.
+   The script `CodeforcesCollect_Submission.py` will prompt you to enter the number of samples you wish to search for (not exceeding 1000). Enter an integer `t`, and the script will proceed to retrieve the specified number of submissions.
+   The script `CodeforcesCollect_contestSubmission.py` will prompt you to enter the contest ID and the number of samples you wish to search for. Enter the contest ID an integer `t`, and the script will proceed to retrieve the specified number of submissions.
 
-4. **查看结果**：脚本会在当前工作目录下创建相应的文件夹结构，并保存提交记录。文件夹结构为`比赛编号/问题编号/编程语言/评测结果`，提交记录保存的文件格式为`提交编号.txt`，评测结果分为`goodCase`（通过）和`badCase`（失败）。
+5. **查看结果**：脚本会在当前工作目录下创建相应的文件夹结构，并保存提交记录。文件夹结构为`比赛编号/问题编号/编程语言/评测结果`，提交记录保存的文件格式为`提交编号.txt`，评测结果分为`goodCase`（通过）和`badCase`（失败）。
 
    **Reviewing the Results**: The script will create the corresponding folder structure in the current working directory and save the submission records. The folder structure will be in the format of `Contest ID/Problem Index/Programming Language/Verdict Result`. The submission records will be saved in files named with the submission ID followed by `.txt`. The verdict results are categorized as `goodCase` (accepted) and `badCase` (failed).
 
