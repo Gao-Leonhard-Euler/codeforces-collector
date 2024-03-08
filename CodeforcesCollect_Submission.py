@@ -3,7 +3,7 @@ import html
 import os
 
 n = 1
-t = int(input('查找的样例个数:'))
+t = int(input('input a number not greater than 1000:'))
 h = 0
 s = requests.get('https://codeforces.com/api/problemset.recentStatus?count='+str(t))
 while s.status_code != 200:
