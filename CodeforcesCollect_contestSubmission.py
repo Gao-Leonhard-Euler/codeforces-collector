@@ -1,0 +1,41 @@
+import requests
+import html
+import os
+import random
+import fake_useragent
+
+def randomUA():
+    rx = random.randint(1,4)
+    if rx==1:
+        return fake_useragent.UserAgent().chrome
+    elif rx==2:
+        return fake_useragent.UserAgent().firefox
+    elif rx==3:
+        return fake_useragent.UserAgent().safari
+    else:
+        return fake_useragent.UserAgent().random
+
+c = input('contest ID:')
+t = int(input('count:'))
+s = requests.get('https://codeforces.com/api/contest.status?contestId=' + c + '&count=' + str(t), headers={'User-Agent':randomUA()})
+while s.status_code != 200:
+    s = requests.get('https://codeforces.com/api/contest.status?contestId=' + c + '&count=' + str(t), headers={'User-Agent':randomUA()})
+s = s.json()['result']
+for i in range(t):
+    df = c + '/' + str(s[i]['problem']['index']) + '/' + s[i]['programmingLanguage']
+    submission = 'https://codeforces.com/problemset/submission/' + c + '/' + str(s[i]['id'])
+    r = requests.get(submission, headers={'User-Agent':randomUA()})
+    while r.status_code != 200 or (r.text.find('verdict-waiting') != -1 and r.text.find('verdict-waiting') < r.text.find('linenums')):
+        r = requests.get(submission, headers={'User-Agent':randomUA()})
+    r = r.text
+    if r.find('verdict-accepted') != -1 and r.find('verdict-accepted') < r.find('linenums'):
+        df = df + '/goodCase'
+    else:
+        df = df + '/badCase'
+    if not os.path.exists(df):
+        os.makedirs(df)
+    f = open(df + '/' + str(s[i]['id']) + '.txt', 'w', encoding='utf-8')
+    r = r[r.find('linenums') + 49:len(r)]
+    r = html.unescape(r[0:r.find('</pre>')])
+    f.write(r)
+    f.close()
