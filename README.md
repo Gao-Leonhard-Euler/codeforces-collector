@@ -1,8 +1,8 @@
 # Codeforces 内容收集器/Codeforces Collector
 
-## 代码搜集
+## 代码收集/Code Collector
 
-### 比赛提交记录搜集器/Contest Submission Collector
+### 比赛提交记录收集器/Contest Submission Collector
 
 `CodeforcesCollect_contestSubmission.py`
 
