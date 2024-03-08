@@ -1,5 +1,7 @@
 # Codeforces 内容收集器/Codeforces Collector
 
+## 代码搜集
+
 ### 比赛提交记录搜集器/Contest Submission Collector
 
 `CodeforcesCollect_contestSubmission.py`
@@ -18,12 +20,13 @@ This Python script can help users collect and save latest submissions from the C
 
 ### 使用方法/Usage
 
-1. **安装依赖**：确保你的Python环境中安装了`requests`和`html`库。如果没有安装，可以通过以下命令安装：
+1. **安装依赖**：确保你的Python环境中安装了`requests`，`fake_useragent`和`html`库。如果没有安装，可以通过以下命令安装：
 
-   **Dependencies Installation**: Ensure that the `requests` and `html` libraries are installed in your Python environment. If not installed, you can install them using the following commands:
+   **Dependencies Installation**: Ensure that the `requests`, `fake_useragent` and `html` libraries are installed in your Python environment. If not installed, you can install them using the following commands:
    
    ```
    pip install requests
+   pip install fake_useragent
    pip install html
    ```
 
