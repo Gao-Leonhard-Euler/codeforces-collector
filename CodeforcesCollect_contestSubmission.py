@@ -25,10 +25,10 @@ for i in range(t):
     df = c + '/' + str(s[i]['problem']['index']) + '/' + s[i]['programmingLanguage']
     submission = 'https://codeforces.com/problemset/submission/' + c + '/' + str(s[i]['id'])
     r = requests.get(submission, headers={'User-Agent':randomUA()})
-    while r.status_code != 200 or (r.text.find('verdict-waiting') != -1 and r.text.find('verdict-waiting') < r.text.find('linenums')):
+    while r.status_code != 200 or (r.text.find('<span class=\'verdict-waiting\'') != -1 and r.text.find('<span class=\'verdict-waiting\'') < r.text.find('linenums')):
         r = requests.get(submission, headers={'User-Agent':randomUA()})
     r = r.text
-    if r.find('verdict-accepted') != -1 and r.find('verdict-accepted') < r.find('linenums'):
+    if r.find('<span class=\'verdict-accepted\'') != -1 and r.find('<span class=\'verdict-accepted\'') < r.find('linenums'):
         df = df + '/goodCase'
     else:
         df = df + '/badCase'
